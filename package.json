@@ -31,9 +31,12 @@
     "url": "https://github.com/xmtp-labs/xmtp-inbox-web/issues"
   },
   "dependencies": {
+    "@coinbase/wallet-sdk": "^3.7.2",
     "@datadog/browser-rum": "^4.38.0",
     "@headlessui/react": "^1.4.3",
     "@heroicons/react": "^1.0.5",
+    "@privy-io/react-auth": "^1.43.3",
+    "@privy-io/wagmi-connector": "^0.1.5",
     "@rainbow-me/rainbowkit": "^1.0.11",
     "@wagmi/core": "^1.4.2",
     "@xmtp/content-type-reaction": "^1.1.2",

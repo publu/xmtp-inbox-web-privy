@@ -1,7 +1,10 @@
 import type { ClientOptions } from "@xmtp/react-sdk";
 import { Client, useClient, useCanMessage } from "@xmtp/react-sdk";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { useConnect, useWalletClient } from "wagmi";
+
+import { useConnect } from "wagmi";
+import {usePrivy, useWallets} from '@privy-io/react-auth';
+
 import type { WalletClient } from "viem";
 import type { ETHAddress } from "../helpers";
 import {
@@ -66,7 +69,9 @@ const useInitXmtpClient = () => {
   const [status, setStatus] = useState<ClientStatus | undefined>();
   // is there a pending signature?
   const [signing, setSigning] = useState(false);
-  const { data: walletClient } = useWalletClient();
+  const {wallets} = useWallets();
+  const walletClient = wallets[0];
+
   const { connect: connectWallet } = useConnect();
   const setClientName = useXmtpStore((s) => s.setClientName);
   const setClientAvatar = useXmtpStore((s) => s.setClientAvatar);
@@ -152,7 +157,7 @@ const useInitXmtpClient = () => {
       // skip this if we already have a client and ensure we have a walletClient
       if (!client && walletClient) {
         onboardingRef.current = true;
-        const { address } = walletClient.account;
+        const { address } = walletClient.address;
         let keys: Uint8Array | undefined = loadKeys(address);
         // check if we already have the keys
         if (keys) {
@@ -219,7 +224,9 @@ const useInitXmtpClient = () => {
             }
           } else {
             // get client keys
-            keys = await Client.getKeys(walletClient, {
+            const provider = await walletClient.getEthersProvider(); // ethers provider object
+            const signer = provider.getSigner(); // ethers signer object
+            keys = await Client.getKeys(signer, {
               ...clientOptions,
               // we don't need to publish the contact here since it
               // will happen when we create the client later
@@ -237,11 +244,13 @@ const useInitXmtpClient = () => {
             storeKeys(address, keys);
           }
         }
+        const provider = await walletClient.getEthersProvider(); // ethers provider object
+        const signer = provider.getSigner(); // ethers signer object
         // initialize client
         const xmtpClient = await initialize({
           keys,
           options: clientOptions,
-          signer: walletClient,
+          signer: signer,
         });
         if (xmtpClient) {
           const name = await throttledFetchAddressName(

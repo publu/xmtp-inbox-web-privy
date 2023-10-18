@@ -1,22 +1,17 @@
-import "./polyfills";
+import './polyfills.ts';
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "@rainbow-me/rainbowkit/styles.css";
-import {
-  connectorsForWallets,
-  getDefaultWallets,
-  RainbowKitProvider,
-} from "@rainbow-me/rainbowkit";
-import { configureChains, createConfig, WagmiConfig } from "wagmi";
-import { trustWallet } from "@rainbow-me/rainbowkit/wallets";
-import { publicProvider } from "wagmi/providers/public";
+import { PrivyWagmiConnector } from '@privy-io/wagmi-connector';
+import { PrivyProvider } from '@privy-io/react-auth'
+import { mainnet, goerli } from 'wagmi/chains';
+import { configureChains } from 'wagmi';
+import { publicProvider } from 'wagmi/providers/public';
 import {
   attachmentContentTypeConfig,
   reactionContentTypeConfig,
   XMTPProvider,
 } from "@xmtp/react-sdk";
-import { mainnet } from "wagmi/chains";
-import { infuraProvider } from "wagmi/providers/infura";
 import App from "./controllers/AppController";
 import { isAppEnvDemo } from "./helpers";
 import { mockConnector } from "./helpers/mockConnector";
@@ -29,50 +24,14 @@ const contentTypeConfigs = [
   reactionContentTypeConfig,
 ];
 
-const { chains, publicClient, webSocketPublicClient } = configureChains(
-  [mainnet],
-  [
-    infuraProvider({ apiKey: import.meta.env.VITE_INFURA_ID ?? "" }),
-    publicProvider(),
-  ],
-);
+const configureChainsConfig = configureChains([mainnet, goerli], [publicProvider()]);
 
-// Required field as of WalletConnect v2.
-// Replace with your project id: https://www.rainbowkit.com/docs/migration-guide#2-supply-a-walletconnect-cloud-projectid
-const projectId = import.meta.env.VITE_PROJECT_ID || "ADD_PROJECT_ID_HERE";
+const projectId = import.meta.env.VITE_PROJECT_ID || "222db3ac25ae83568adbeb141b834b09";
 const appName = "XMTP Inbox Web";
 
-const { wallets } = getDefaultWallets({
-  appName,
-  projectId,
-  chains,
-});
-
-const connectors = connectorsForWallets([
-  ...wallets,
-  {
-    groupName: "Other",
-    wallets: [trustWallet({ projectId, chains })],
-  },
-]);
-
-const wagmiDemoConfig = createConfig({
-  autoConnect: true,
-  connectors: [mockConnector],
-  publicClient,
-  webSocketPublicClient,
-});
-
-const wagmiConfig = createConfig({
-  autoConnect: true,
-  connectors,
-  publicClient,
-  webSocketPublicClient,
-});
-
 createRoot(document.getElementById("root") as HTMLElement).render(
-  <WagmiConfig config={isAppEnvDemo() ? wagmiDemoConfig : wagmiConfig}>
-    <RainbowKitProvider chains={chains}>
+  <PrivyProvider appId="clmqiq9ey07j5l20fobyhgy47">
+    <PrivyWagmiConnector wagmiChainsConfig={configureChainsConfig}>
       <StrictMode>
         <XMTPProvider
           contentTypeConfigs={contentTypeConfigs}
@@ -80,6 +39,7 @@ createRoot(document.getElementById("root") as HTMLElement).render(
           <App />
         </XMTPProvider>
       </StrictMode>
-    </RainbowKitProvider>
-  </WagmiConfig>,
+    </PrivyWagmiConnector>
+  </PrivyProvider>,
 );
+
