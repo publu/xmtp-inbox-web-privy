@@ -2,6 +2,7 @@ import { fetchEnsAvatar, fetchEnsName, fetchEnsAddress } from "@wagmi/core";
 import { getAddress } from "viem";
 import { ALLOWED_UNS_SUFFIXES, API_FETCH_THROTTLE } from "./constants";
 import { memoizeThrottle } from "./functions";
+import {fetchUniversalProfile, fetchLensProfile} from 'web3card/src/apiFunctions.js';
 
 export type ETHAddress = `0x${string}`;
 
@@ -42,6 +43,25 @@ export const isEnsName = (value: string): boolean => {
   return true;
 };
 
+// Lens
+export const isLensName = (value: string): boolean => {
+  // value must have a minimum length and contain a dot
+  if (value.length < 3 || !value.includes(".lens")) {
+    return false;
+  }
+  return true;
+};
+
+export const tryMask = async (value: string): Promise<any[]> => {
+  try{
+    console.log("tryMask")
+    const profileData = await fetchUniversalProfile(value);
+    return profileData ? [profileData] : [];
+  } catch(e){
+    return [];
+  }
+};
+
 export const isUnsName = (value: string): boolean => {
   // value must have a minimum length and contain a dot
   if (
@@ -79,6 +99,13 @@ export const throttledFetchEnsName = memoizeThrottle(
   API_FETCH_THROTTLE,
   undefined,
   ({ address }) => address,
+);
+
+export const throttledFetchLensName = memoizeThrottle(
+  fetchLensProfile,
+  API_FETCH_THROTTLE,
+  undefined,
+  (profile) => profile,
 );
 
 export const throttledFetchEnsAvatar = memoizeThrottle(

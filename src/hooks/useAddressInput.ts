@@ -9,6 +9,8 @@ import {
   throttledFetchEnsAvatar,
   throttledFetchEnsName,
   throttledFetchUnsAddress,
+  isLensName,
+  throttledFetchLensName,
 } from "../helpers";
 import { useXmtpStore } from "../store/xmtp";
 
@@ -85,6 +87,16 @@ export const useAddressInput = () => {
         if (isValidLongWalletAddress(recipientInput)) {
           setRecipientAddress(recipientInput);
           // if input is a uns name
+        } else if (isLensName(recipientInput)) {
+          console.log("FETCHING LENS")
+          setRecipientState("loading");
+          // fetch lens address
+          const profile = await throttledFetchLensName(recipientInput);
+          console.log("address:", profile)
+          if (profile.address) {
+            setRecipientAddress(profile.address);
+            setRecipientName(recipientInput);
+          }
         } else if (isUnsName(recipientInput)) {
           setRecipientState("loading");
           // fetch uns address
@@ -104,6 +116,12 @@ export const useAddressInput = () => {
             setRecipientName(recipientInput);
           }
         }
+/*        console.log("recipientInput: ", recipientInput)
+        const profileData = await tryMask(recipientInput)
+        if(profileData.length > 0 && profileData[0].address) {
+            setRecipientAddress(profileData[0].address);
+            setRecipientName(profileData[0].identity);
+        }*/
       } catch {
         setRecipientState("error");
       }
