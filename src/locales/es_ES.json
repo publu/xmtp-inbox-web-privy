@@ -1,0 +1,89 @@
+{
+  "onboarding": {
+    "demo_header": "Iniciando el modo de demostración...",
+    "intro_header": "Un buzón web3 interoperable",
+    "intro_subheader": "Accede a todos tus DMs de XMTP, no importa dónde los hayas iniciado.",
+    "intro_button": "Conecta tu cartera",
+    "connect_header": "Conectando a tu cartera...",
+    "connect_subheader": "Selecciona una cuenta de cartera para usar para crear tu identidad XMTP. Luego permite que esta aplicación se conecte a la cuenta.",
+    "create_header": "Crea tu identidad XMTP",
+    "create_subheader": "Una identidad XMTP es como una cuenta de mensajería. Crearás tu identidad XMTP usando una firma de cartera.",
+    "create_button": "Crear identidad XMTP",
+    "creating_header": "Creando tu identidad XMTP...",
+    "creating_subheader": "Haz clic en <strong>Firmar</strong> para crear tu identidad XMTP. Tu firma demuestra que posees y controlas tu identidad XMTP.",
+    "enable_header": "Habilita tu identidad XMTP",
+    "enable_subheader": "Habilitar tu identidad XMTP es como establecer la contraseña para tu buzón.",
+    "enable_button": "Habilitar identidad XMTP",
+    "enabling_header": "Habilitando tu identidad XMTP...",
+    "enabling_subheader": "Haz clic en <strong>Firmar</strong> para crear tu contraseña. Se te pedirá que hagas clic en <strong>Firmar</strong> para proporcionarla cada vez que accedas a tu buzón."
+  },
+  "messages": {
+    "attachment": "Adjunto",
+    "attachment_cta": "Haz clic para cargar",
+    "attachment_reload": "Recargar",
+    "filter_none": "Todos los mensajes",
+    "filter_requests": "Solicitudes de mensajes",
+    "convos_empty_header": "¿No hay mensajes? No hay problema.",
+    "convos_empty_subheader": "Inicia una conversación para empezar con los DMs que posees y controlas.",
+    "convos_empty_button": "Envía tu primer mensaje",
+    "convos_empty_recipient_placeholder": "Nuevo destinatario",
+    "convos_empty_text_placeholder": "Nuevo mensaje",
+    "messages_empty_header": "Explora el universo XMTP",
+    "messages_empty_subheader": "Comienza",
+    "messages_empty_cta_1_header": "Envía un mensaje",
+    "messages_empty_cta_1_subheader": "Envía un mensaje a alguien usando su cartera 0x, ENS o dirección UNS",
+    "messages_empty_cta_2_header": "Encuentra las aplicaciones perfectas para ti",
+    "messages_empty_cta_2_subheader": "Explora una vitrina de aplicaciones construidas con XMTP, todas te dan acceso a tu buzón interoperable",
+    "messages_empty_cta_3_header": "Documentos para desarrolladores",
+    "messages_empty_cta_3_subheader": "Aprende cómo construir una aplicación con XMTP",
+    "address_field_prompt": "Introduce una dirección de cartera 0x, ENS o UNS",
+    "address_field_loading": "Comprobando dirección...",
+    "address_field_invalid": "Por favor, introduce una dirección de cartera 0x, ENS o UNS válida",
+    "address_field_not_on_network": "Lo sentimos, no podemos enviar un mensaje a esta dirección porque su propietario aún no la ha utilizado con XMTP",
+    "message_field_prompt": "Escribe un mensaje",
+    "conversation_start": "Este es el comienzo de la conversación",
+    "conversation_loading": "Cargando mensajes...",
+    "message_not_delivered": "No entregado",
+    "message_retry": "Reintentar",
+    "message_cancel": "Cancelar"
+  },
+  "attachments": {
+    "unable_to_display": "No se puede mostrar el adjunto",
+    "download_instead": "Descargar en su lugar.",
+    "video_messages_not_supported": "Tu navegador no soporta la etiqueta de video.",
+    "recording": "Grabando…"
+  },
+  "menu": {
+    "collapse_header": "Colapsar",
+    "messages_header": "Mensajes"
+  },
+  "status_messaging": {
+    "error_1_header": "Lo siento, la aplicación encontró un error",
+    "error_1_subheader": "No te preocupes. Intentemos de nuevo. Si el error persiste, <0>¡estamos aquí para ayudar!</0>",
+    "error_1_button": "Intentar de nuevo",
+    "gateway_error": "No se puede cargar el adjunto",
+    "file_invalid_format": "El archivo debe ser de un formato de archivo válido",
+    "file_too_large": "Por favor, elige adjuntos menores de 5 MB",
+    "file_unsupported": "[Adjunto] No se puede mostrar \"{{FILENAME}}\". Esta aplicación aún no soporta adjuntos.",
+    "loading": "Cargando...",
+    "microphone_not_enabled": "Asegúrate de que tu micrófono esté habilitado"
+  },
+  "common": {
+    "disconnect": "Desconectar cartera",
+    "exportWallet": "Exportar cartera",
+    "private_key_note": "No se compartirán claves privadas.",
+    "step_of_2": "Paso {{NUM}} de 2",
+    "disconnect_tip": "<strong>Consejo</strong>: Si hacer clic en <strong>Desconectar cartera</strong> no desconecta tu cartera, por favor usa directamente tu extensión de cartera para desconectar de esta aplicación.",
+    "input_label": "A",
+    "share_code": "Comparte el poder de la red XMTP con tus amigos, familia y colegas",
+    "share_link": "Copia tu enlace de compartir",
+    "share_qr_code": "Compartir código QR",
+    "report_bug": "Reportar un error"
+  },
+  "aria_labels": {
+    "address_input": "Entrada de dirección",
+    "filepicker": "Selector de archivos",
+    "start_message": "Iniciar nuevo mensaje",
+    "submit_message": "Enviar mensaje"
+  }
+}

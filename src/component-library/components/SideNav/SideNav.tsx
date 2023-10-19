@@ -35,6 +35,10 @@ interface SideNavProps {
    */
   avatarUrl?: string;
   /**
+   * What should happen when export is clicked?
+   */
+  exportWallet?: () => void;
+  /**
    * What should happen when disconnect is clicked?
    */
   onDisconnect?: () => void;
@@ -51,30 +55,33 @@ const SideNav = ({
   displayAddress,
   walletAddress,
   avatarUrl,
+  exportWallet,
   onDisconnect,
 }: SideNavProps) => {
   const [mappedLangs, setMappedLangs] = useState<Lang[]>([]);
   // When language changes, change the modal text to render the corresponding locale selector within that language
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+
   useEffect(() => {
     const langs = supportedLocales.map((locale: string) => {
-      const lang = locale?.split("-")?.[0] || "en";
+      const lang = locale || "en-US";
       const languageNames = new Intl.DisplayNames([i18next.language], {
         type: "language",
       });
-
+      let displayText = languageNames.of(lang);
+      displayText = displayText?.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
       return {
-        displayText: languageNames.of(lang),
+        displayText: displayText,
         isSelected: i18next.language === lang,
         lang,
       };
     });
     setMappedLangs(langs);
-  }, []);
+  }, [isDialogOpen]);
 
   const [isOpen, setIsOpen] = useState(false);
   const { t } = useTranslation();
 
-  const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [isQrCodeDialogOpen, setIsQrCodeDialogOpen] = useState(false);
 
   const onSideNavBtnClick = (key: string) => {
@@ -333,6 +340,14 @@ const SideNav = ({
               size="small"
               testId="disconnect-wallet-cta"
               icon={<DisconnectIcon />}
+            />
+            <hr className="m-2" />
+            <GhostButton
+              onClick={exportWallet}
+              label={t("common.exportWallet")}
+              variant="secondary"
+              size="small"
+              testId="export-wallet-cta"
             />
           </div>
         </Dialog>

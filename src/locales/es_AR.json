@@ -1,0 +1,90 @@
+{
+    "onboarding": {
+      "demo_header": "Arrancando el modo de prueba...",
+      "intro_header": "Un buzón web3 que se la banca",
+      "intro_subheader": "Accedé a todos tus DMs de XMTP, no importa dónde los hayas arrancado.",
+      "intro_button": "Conectá tu billetera",
+      "connect_header": "Pegándole a tu billetera...",
+      "connect_subheader": "Elegí una cuenta de billetera para usar para crear tu identidad XMTP. Después permití que esta app se conecte a la cuenta.",
+      "create_header": "Creá tu identidad XMTP",
+      "create_subheader": "Una identidad XMTP es como una cuenta de mensajería. Vas a crear tu identidad XMTP usando una firma de billetera.",
+      "create_button": "Crear identidad XMTP",
+      "creating_header": "Creando tu identidad XMTP...",
+      "creating_subheader": "Hacé clic en <strong>Firmar</strong> para crear tu identidad XMTP. Tu firma demuestra que sos dueño y controlás tu identidad XMTP.",
+      "enable_header": "Habilitá tu identidad XMTP",
+      "enable_subheader": "Habilitar tu identidad XMTP es como ponerle la clave a tu buzón.",
+      "enable_button": "Habilitar identidad XMTP",
+      "enabling_header": "Habilitando tu identidad XMTP...",
+      "enabling_subheader": "Hacé clic en <strong>Firmar</strong> para crear tu clave. Te van a pedir que hagas clic en <strong>Firmar</strong> para darla cada vez que accedas a tu buzón."
+    },
+    "messages": {
+      "attachment": "Adjunto",
+      "attachment_cta": "Hacé clic para cargar",
+      "attachment_reload": "Recargar",
+      "filter_none": "Todos los mensajes",
+      "filter_requests": "Pedidos de mensajes",
+      "convos_empty_header": "¿No hay mensajes? No hay drama.",
+      "convos_empty_subheader": "Arrancá una charla para empezar con los DMs que sos dueño y controlás.",
+      "convos_empty_button": "Mandá tu primer mensaje",
+      "convos_empty_recipient_placeholder": "Nuevo destinatario",
+      "convos_empty_text_placeholder": "Nuevo mensaje",
+      "messages_empty_header": "Explorá el universo XMTP",
+      "messages_empty_subheader": "Arrancá",
+      "messages_empty_cta_1_header": "Mandá un mensaje",
+      "messages_empty_cta_1_subheader": "Mandá un mensaje a alguien usando su billetera 0x, ENS o dirección UNS",
+      "messages_empty_cta_2_header": "Encontrá las apps que más te copan",
+      "messages_empty_cta_2_subheader": "Explorá una vidriera de apps hechas con XMTP, todas te dan acceso a tu buzón que se la banca",
+      "messages_empty_cta_3_header": "Docs para desarrolladores",
+      "messages_empty_cta_3_subheader": "Aprendé cómo hacer una app con XMTP",
+      "address_field_prompt": "Meté una dirección de billetera 0x, ENS o UNS",
+      "address_field_loading": "Chequeando dirección...",
+      "address_field_invalid": "Por favor, meté una dirección de billetera 0x, ENS o UNS válida",
+      "address_field_not_on_network": "Perdón, no podemos mandar un mensaje a esta dirección porque su dueño todavía no la usó con XMTP",
+      "message_field_prompt": "Escribí un mensaje",
+      "conversation_start": "Este es el comienzo de la charla",
+      "conversation_loading": "Cargando mensajes...",
+      "message_not_delivered": "No entregado",
+      "message_retry": "Reintentar",
+      "message_cancel": "Cancelar"
+    },
+    "attachments": {
+      "unable_to_display": "No se puede mostrar el adjunto",
+      "download_instead": "Descargá en su lugar.",
+      "video_messages_not_supported": "Tu navegador no se la banca con la etiqueta de video.",
+      "recording": "Grabando…"
+    },
+    "menu": {
+      "collapse_header": "Colapsar",
+      "messages_header": "Mensajes"
+    },
+    "status_messaging": {
+      "error_1_header": "Perdón, la app encontró un error",
+      "error_1_subheader": "No te hagas drama. Intentemos de nuevo. Si el error sigue, <0>¡estamos acá para ayudarte!</0>",
+      "error_1_button": "Intentar de nuevo",
+      "gateway_error": "No se puede cargar el adjunto",
+      "file_invalid_format": "El archivo tiene que ser de un formato válido",
+      "file_too_large": "Por favor, elegí adjuntos menores de 5 MB",
+      "file_unsupported": "[Adjunto] No se puede mostrar \"{{FILENAME}}\". Esta app todavía no se la banca con adjuntos.",
+      "loading": "Cargando...",
+      "microphone_not_enabled": "Asegurate de que tu micrófono esté habilitado"
+    },
+    "common": {
+      "disconnect": "Desconectar billetera",
+      "exportWallet": "Exportar billetera",
+      "private_key_note": "No se van a compartir claves privadas.",
+      "step_of_2": "Paso {{NUM}} de 2",
+      "disconnect_tip": "<strong>Consejo</strong>: Si hacer clic en <strong>Desconectar billetera</strong> no desconecta tu billetera, por favor usá directamente tu extensión de billetera para desconectar de esta app.",
+      "input_label": "A",
+      "share_code": "Compartí el poder de la red XMTP con tus amigos, familia y colegas",
+      "share_link": "Copiá tu enlace para compartir",
+      "share_qr_code": "Compartir código QR",
+      "report_bug": "Reportar un error"
+    },
+    "aria_labels": {
+      "address_input": "Entrada de dirección",
+      "filepicker": "Selector de archivos",
+      "start_message": "Arrancar nuevo mensaje",
+      "submit_message": "Mandar mensaje"
+    }
+  }
+  
