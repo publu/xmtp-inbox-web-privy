@@ -30,9 +30,6 @@ const OnboardingPage = () => {
         isNewUser,
         wasPreviouslyAuthenticated,
       });
-      if (!wallets.length) {
-        connectWallet();
-      }
     },
     // Set up an `onError` callback to run when there is a `login` error
     onError(error) {
