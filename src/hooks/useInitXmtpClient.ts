@@ -75,6 +75,8 @@ const useInitXmtpClient = () => {
   const { connect: connectWallet } = useConnect();
   const setClientName = useXmtpStore((s) => s.setClientName);
   const setClientAvatar = useXmtpStore((s) => s.setClientAvatar);
+  const {ready, authenticated, user, login, logout} = usePrivy();
+  console.log("user: ", user, ready, authenticated)
 
   /**
    * In order to have more granular control of the onboarding process, we must
@@ -100,7 +102,7 @@ const useInitXmtpClient = () => {
       };
       // if the walletClient changes during the onboarding process, reset the promise
       // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [walletClient]);
+    }, [wallets]);
 
   // create promise, callback, and resolver for controlling the display of the
   // enable account signature.
@@ -124,7 +126,7 @@ const useInitXmtpClient = () => {
       };
       // if the walletClient changes during the onboarding process, reset the promise
       // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [walletClient]);
+    }, [wallets, ready, authenticated]);
 
   const { client, isLoading, initialize } = useClient();
   const { canMessageStatic: canMessageUser } = useCanMessage();
@@ -155,9 +157,13 @@ const useInitXmtpClient = () => {
         }
       }
       // skip this if we already have a client and ensure we have a walletClient
-      if (!client && walletClient) {
+      console.log("HERE")
+      console.log(wallets)
+
+      if (!client && wallets.length > 0) {
         onboardingRef.current = true;
-        const { address } = walletClient.address;
+        console.log("walletClient.address: ", walletClient.address)
+        const address = walletClient.address;
         let keys: Uint8Array | undefined = loadKeys(address);
         // check if we already have the keys
         if (keys) {
@@ -270,7 +276,7 @@ const useInitXmtpClient = () => {
     };
     void updateStatus();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [client, walletClient]);
+  }, [client, walletClient, ready, authenticated]);
 
   // it's important that this effect runs last
   useEffect(() => {

@@ -7,7 +7,7 @@ import { OnboardingStep } from "../component-library/components/OnboardingStep/O
 import { classNames, isAppEnvDemo, wipeKeys } from "../helpers";
 import useInitXmtpClient from "../hooks/useInitXmtpClient";
 import { useXmtpStore } from "../store/xmtp";
-import {usePrivy, useWallets} from '@privy-io/react-auth';
+import { useWallets, useLogin, usePrivy } from '@privy-io/react-auth'
 
 const OnboardingPage = () => {
   const navigate = useNavigate();
@@ -18,7 +18,27 @@ const OnboardingPage = () => {
     useInitXmtpClient();
   const { reset: resetWagmi, disconnect: disconnectWagmi } = useDisconnect();
   const { disconnect: disconnectClient } = useClient();
-  const {login, ready, authenticated} = usePrivy();
+  
+  const { ready, authenticated, user, logout, connectWallet } = usePrivy();
+  const { wallets } = useWallets();
+  
+  const { login } = useLogin({
+    // Set up an `onComplete` callback to run when `login` completes
+    onComplete(user, isNewUser, wasPreviouslyAuthenticated) {
+      console.log('🔑 ✅ Login success', {
+        user,
+        isNewUser,
+        wasPreviouslyAuthenticated,
+      });
+      if (!wallets.length) {
+        connectWallet();
+      }
+    },
+    // Set up an `onError` callback to run when there is a `login` error
+    onError(error) {
+      console.log('🔑 🚨 Login error', { error });
+    },
+  });
 
   useEffect(() => {
     const routeToInbox = () => {
