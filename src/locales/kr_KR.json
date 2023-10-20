@@ -1,0 +1,89 @@
+{
+  "onboarding": {
+    "demo_header": "데모 모드 초기화 중...",
+    "intro_header": "상호 운용 가능한 web3 인박스",
+    "intro_subheader": "시작한 곳에 관계없이 모든 XMTP DM에 액세스하세요.",
+    "intro_button": "지갑 연결",
+    "connect_header": "지갑에 연결 중...",
+    "connect_subheader": "XMTP 신원을 생성하는 데 사용할 지갑 계정을 선택하십시오. 그런 다음 이 앱이 계정에 연결하도록 허용하십시오.",
+    "create_header": "XMTP 신원 생성",
+    "create_subheader": "XMTP 신원은 메시징 계정과 같습니다. 지갑 서명을 사용하여 XMTP 신원을 생성합니다.",
+    "create_button": "XMTP 신원 생성",
+    "creating_header": "XMTP 신원 생성 중...",
+    "creating_subheader": "XMTP 신원을 생성하려면 <strong>서명</strong>을 클릭하십시오. 귀하의 서명은 귀하가 XMTP 신원을 소유하고 제어한다는 것을 증명합니다.",
+    "enable_header": "XMTP 신원 활성화",
+    "enable_subheader": "XMTP 신원을 활성화하는 것은 인박스의 비밀번호를 설정하는 것과 같습니다.",
+    "enable_button": "XMTP 신원 활성화",
+    "enabling_header": "XMTP 신원 활성화 중...",
+    "enabling_subheader": "비밀번호를 생성하려면 <strong>서명</strong>을 클릭하십시오. 인박스에 액세스할 때마다 <strong>서명</strong>을 클릭하여 제공하라는 메시지가 표시됩니다."
+  },
+  "messages": {
+    "attachment": "첨부 파일",
+    "attachment_cta": "로드하려면 클릭",
+    "attachment_reload": "다시 로드",
+    "filter_none": "모든 메시지",
+    "filter_requests": "메시지 요청",
+    "convos_empty_header": "메시지가 없습니까? 문제 없습니다.",
+    "convos_empty_subheader": "대화를 시작하여 DM을 소유하고 제어하십시오.",
+    "convos_empty_button": "첫 번째 메시지 보내기",
+    "convos_empty_recipient_placeholder": "새 수신자",
+    "convos_empty_text_placeholder": "새 메시지",
+    "messages_empty_header": "XMTP 우주 탐험",
+    "messages_empty_subheader": "시작하기",
+    "messages_empty_cta_1_header": "메시지 보내기",
+    "messages_empty_cta_1_subheader": "0x 지갑, ENS 또는 UNS 주소를 사용하여 메시지를 보내십시오",
+    "messages_empty_cta_2_header": "당신을 위한 완벽한 앱 찾기",
+    "messages_empty_cta_2_subheader": "XMTP로 구축된 앱 쇼케이스를 탐험하십시오 - 모두가 상호 운용 가능한 인박스에 액세스할 수 있습니다",
+    "messages_empty_cta_3_header": "개발자 문서",
+    "messages_empty_cta_3_subheader": "XMTP로 앱을 만드는 방법 배우기",
+    "address_field_prompt": "0x 지갑, ENS 또는 UNS 주소 입력",
+    "address_field_loading": "주소 확인 중...",
+    "address_field_invalid": "유효한 0x 지갑, ENS 또는 UNS 주소를 입력하십시오",
+    "address_field_not_on_network": "죄송합니다, 이 주소의 소유자가 아직 XMTP를 사용하지 않았기 때문에 이 주소로 메시지를 보낼 수 없습니다",
+    "message_field_prompt": "메시지 작성",
+    "conversation_start": "이것은 대화의 시작입니다",
+    "conversation_loading": "메시지 로드 중...",
+    "message_not_delivered": "배달되지 않음",
+    "message_retry": "재시도",
+    "message_cancel": "취소"
+  },
+  "attachments": {
+    "unable_to_display": "첨부 파일을 표시할 수 없습니다",
+    "download_instead": "대신 다운로드.",
+    "video_messages_not_supported": "브라우저가 비디오 태그를 지원하지 않습니다.",
+    "recording": "녹음 중..."
+  },
+  "menu": {
+    "collapse_header": "축소",
+    "messages_header": "메시지"
+  },
+  "status_messaging": {
+    "error_1_header": "죄송합니다, 앱에서 오류가 발생했습니다",
+    "error_1_subheader": "걱정하지 마십시오. 다시 시도해 봅시다. 오류가 계속되면 <0>도움을 드립니다!</0>",
+    "error_1_button": "다시 시도",
+    "gateway_error": "첨부 파일을 로드할 수 없습니다",
+    "file_invalid_format": "파일은 유효한 파일 형식이어야 합니다",
+    "file_too_large": "5MB보다 작은 첨부 파일을 선택하십시오",
+    "file_unsupported": "[첨부] \"{{FILENAME}}\"을(를) 표시할 수 없습니다. 이 앱은 아직 첨부 파일을 지원하지 않습니다.",
+    "loading": "로드 중...",
+    "microphone_not_enabled": "마이크가 활성화되어 있는지 확인하십시오"
+  },
+  "common": {
+    "disconnect": "지갑 연결 해제",
+    "exportWallet": "지갑 내보내기",
+    "private_key_note": "개인 키는 공유되지 않습니다.",
+    "step_of_2": "2단계 중 {{NUM}}단계",
+    "disconnect_tip": "<strong>팁</strong>: <strong>지갑 연결 해제</strong>를 클릭해도 지갑이 연결 해제되지 않으면 지갑 확장 프로그램을 직접 사용하여 이 앱에서 연결을 해제하십시오.",
+    "input_label": "받는 사람",
+    "share_code": "XMTP 네트워크의 힘을 친구, 가족, 동료와 공유하십시오",
+    "share_link": "공유 링크 복사",
+    "share_qr_code": "QR 코드 공유",
+    "report_bug": "버그 보고"
+  },
+  "aria_labels": {
+    "address_input": "주소 입력",
+    "filepicker": "파일 선택기",
+    "start_message": "새 메시지 시작",
+    "submit_message": "메시지 제출"
+  }
+}

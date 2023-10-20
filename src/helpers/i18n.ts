@@ -19,7 +19,7 @@ function isDate(value: unknown): value is Date {
 type Locales = Record<string, Locale>;
 type TranslationObject = Record<string, Record<string, string>>;
 
-export const supportedLocales = ["en-US", "hi-IN", "es-ES", "es-AR"];
+export const supportedLocales = ["en-US", "hi-IN", "es-ES", "es-AR", "kr-KR"];
 
 export const initialize = async () => {
   // Get translated JSON files from locales folder so we don't need to import here individually
@@ -29,6 +29,7 @@ export const initialize = async () => {
     "../locales/hi_IN.json": () => import("../locales/hi_IN.json"),
     "../locales/es_ES.json": () => import("../locales/es_ES.json"),
     "../locales/es_AR.json": () => import("../locales/es_AR.json"),
+    "../locales/kr_KR.json": () => import("../locales/kr_KR.json"),
   };
   const filenames = Object.keys(localeFiles).map(
     (item) => item.split("locales/")[1],
